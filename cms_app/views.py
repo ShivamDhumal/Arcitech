@@ -176,9 +176,9 @@ def search_content(request):
         try:
             content = content_item.objects.filter(
                 Q(title__icontains=search_query) |
-                Q(description__icontains=search_query) |
+                Q(body__icontains=search_query) |
                 Q(summary__icontains=search_query) |
-                Q(categories__name__icontains=search_query)
+                Q(category__name__icontains=search_query)
             )
 
             serializer = contentserializer(content, many=True)
